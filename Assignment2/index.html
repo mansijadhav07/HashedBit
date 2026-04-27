@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 2</title>
+
+    <style>
+        .section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Assignment 2</h1>
+
+    <!-- NAVBAR -->
+    <button onclick="show('q1')">Even Numbers</button>
+    <button onclick="show('q2')">Calculator</button>
+    <button onclick="show('q3')">Tax</button>
+    <button onclick="show('q4')">Digit Product</button>
+
+    <hr>
+
+    <!-- Q1 -->
+    <div id="q1" class="section">
+        <h2>Even Numbers (1–100)</h2>
+        <button onclick="even()">Show</button>
+        <p id="out1"></p>
+    </div>
+
+    <!-- Q2 -->
+    <div id="q2" class="section">
+        <h2>Calculator</h2>
+        <input type="number" id="a" placeholder="Number 1">
+        <input type="number" id="b" placeholder="Number 2">
+        <input type="text" id="op" placeholder="+ - * /">
+        <br><br>
+        <button onclick="calc()">Calculate</button>
+        <p id="out2"></p>
+    </div>
+
+    <!-- Q3 -->
+    <div id="q3" class="section">
+        <h2>Tax Calculation</h2>
+        <input type="number" id="salary" placeholder="Enter salary">
+        <br><br>
+        <button onclick="tax()">Calculate</button>
+        <p id="out3"></p>
+    </div>
+
+    <!-- Q4 -->
+    <div id="q4" class="section">
+        <h2>Sum of Product of Digits</h2>
+        <input type="number" id="n1" placeholder="Enter n1">
+        <input type="number" id="n2" placeholder="Enter n2">
+        <br><br>
+        <button onclick="product()">Calculate</button>
+        <p id="out4"></p>
+    </div>
+
+    <script>
+
+        // show section
+        function show(id) {
+            let sections = document.getElementsByClassName("section");
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
+        }
+
+        // Q1
+        function even() {
+            let res = "";
+            for (let i = 2; i <= 100; i += 2) {
+                res += i + " ";
+            }
+            document.getElementById("out1").innerText = res;
+        }
+
+        // Q2
+        function calc() {
+            let a = Number(document.getElementById("a").value);
+            let b = Number(document.getElementById("b").value);
+            let op = document.getElementById("op").value;
+            let result;
+
+            switch (op) {
+                case '+': result = a + b; break;
+                case '-': result = a - b; break;
+                case '*': result = a * b; break;
+                case '/': result = b !== 0 ? a / b : "Cannot divide by zero"; break;
+                default: result = "Invalid operator";
+            }
+
+            document.getElementById("out2").innerText = result;
+        }
+
+        // Q3
+        function tax() {
+            let salary = Number(document.getElementById("salary").value);
+            let tax = 0;
+
+            switch (true) {
+                case (salary > 0 && salary <= 500000): tax = 0; break;
+                case (salary <= 1000000): tax = salary * 0.1; break;
+                case (salary <= 1500000): tax = salary * 0.2; break;
+                default: tax = salary * 0.3;
+            }
+
+            document.getElementById("out3").innerText = tax;
+        }
+
+        // Q4
+        function product() {
+            let n1 = Number(document.getElementById("n1").value);
+            let n2 = Number(document.getElementById("n2").value);
+            let sum = 0;
+
+            while (n1 > 0 || n2 > 0) {
+                let d1 = n1 % 10;
+                let d2 = n2 % 10;
+
+                sum += d1 * d2;
+
+                n1 = Math.floor(n1 / 10);
+                n2 = Math.floor(n2 / 10);
+            }
+
+            document.getElementById("out4").innerText = sum;
+        }
+
+    </script>
+
+</body>
+
+</html>
