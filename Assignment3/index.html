@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Assignment 3</title>
+</head>
+
+<body>
+
+    <h1>Assignment 3</h1>
+
+    <script>
+
+        // Q1
+        document.write("<h3>Q1</h3>");
+        let states = ["Maharashtra", "Odisha", "Assam", "Uttar Pradesh", "Bihar"];
+        let result1 = states.filter(function (s) {
+            let first = s[0].toUpperCase();
+            return !(first == 'A' || first == 'E' || first == 'I' || first == 'O' || first == 'U');
+        });
+        document.write(result1 + "<br><br>");
+
+
+        // Q2
+        document.write("<h3>Q2</h3>");
+        let str = "I love my India";
+        let arr = str.split(" ");
+        arr.reverse();
+        let result2 = arr.join(" ");
+        document.write(result2 + "<br><br>");
+
+
+        // Q3
+        document.write("<h3>Q3</h3>");
+        let string = "INDIA".split("");
+        string.splice(3, 0, "O", "N", "E", "S");
+        let result3 = string.join("");
+        document.write(result3 + "<br><br>");
+
+
+        // Q4
+        document.write("<h3>Q4</h3>");
+        let text = "This is a simple string with more than twenty characters";
+        let v = 0, c = 0;
+
+        for (let i = 0; i < text.length; i++) {
+            let ch = text[i].toLowerCase();
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                v++;
+            } else if (ch >= 'a' && ch <= 'z') {
+                c++;
+            }
+        }
+        document.write("Vowels: " + v + " Consonants: " + c + "<br><br>");
+
+
+        // Q5
+        document.write("<h3>Q5</h3>");
+        function correctfn(s, wrong, correct) {
+            return s.replace(wrong, correct);
+        }
+        document.write(correctfn("I has a pen", "has", "have") + "<br><br>");
+
+
+        // Q6
+        document.write("<h3>Q6</h3>");
+        let inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+        let result6 = inputArr.filter(function (n) {
+            return n > 5;
+        });
+        document.write(result6 + "<br><br>");
+
+
+        // Q7
+        document.write("<h3>Q7</h3>");
+        const students = [
+            { name: "Ram", scores: [80, 70, 60] },
+            { name: "Mohan", scores: [80, 70, 90] },
+        ];
+
+        for (let i = 0; i < students.length; i++) {
+            let sum = 0;
+            let scores = students[i].scores;
+
+            for (let j = 0; j < scores.length; j++) {
+                sum += scores[j];
+            }
+
+            let avg = sum / scores.length;
+            document.write(students[i].name + " Avg: " + avg + "<br>");
+        }
+        document.write("<br>");
+
+
+        // Q8
+        document.write("<h3>Q8</h3>");
+        function digitSum(n) {
+            while (n > 9) {
+                let sum = 0;
+                while (n > 0) {
+                    sum += n % 10;
+                    n = Math.floor(n / 10);
+                }
+                n = sum;
+            }
+            return n;
+        }
+        document.write(digitSum(456) + "<br><br>");
+
+
+        // Q9
+        document.write("<h3>Q9</h3>");
+        function countWords(s) {
+            let words = s.trim().split(" ");
+            return words.length;
+        }
+        document.write(countWords("This is a simple paragraph") + "<br><br>");
+
+
+        // Q10
+        document.write("<h3>Q10</h3>");
+        function reverseStr(s) {
+            return s.split("").reverse().join("");
+        }
+        document.write(reverseStr("Hello") + "<br><br>");
+
+
+        // Q11
+        document.write("<h3>Q11</h3>");
+        let studentsObj = {
+            student1: { subject1: 44, subject2: 56, subject3: 87 },
+            student2: { subject1: 44, subject2: 56, subject3: 87 }
+        };
+
+        for (let key in studentsObj) {
+            let marks = Object.values(studentsObj[key]);
+            let sum = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+                sum += marks[i];
+            }
+
+            let avg = sum / marks.length;
+            document.write(key + " Avg: " + avg + "<br>");
+        }
+
+    </script>
+
+</body>
+
+</html>
