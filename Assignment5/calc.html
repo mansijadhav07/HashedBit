@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+
+<input type="number" id="num1">
+<input type="number" id="num2">
+
+<br><br>
+
+<button onclick="calculate('+')">Add</button>
+<button onclick="calculate('-')">Subtract</button>
+<button onclick="calculate('*')">Multiply</button>
+<button onclick="calculate('/')">Divide</button>
+
+<br><br>
+
+<div id="result"></div>
+
+<script>
+function calculate(op) {
+    const n1 = parseFloat(document.getElementById("num1").value);
+    const n2 = parseFloat(document.getElementById("num2").value);
+    let res;
+
+    if (op === '+') res = n1 + n2;
+    else if (op === '-') res = n1 - n2;
+    else if (op === '*') res = n1 * n2;
+    else if (op === '/') res = n2 !== 0 ? n1 / n2 : "Cannot divide by 0";
+
+    document.getElementById("result").innerText = res;
+}
+</script>
+
+</body>
+</html>
