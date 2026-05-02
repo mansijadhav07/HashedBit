@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+</head>
+<body>
+    <div style="max-width: 600px; margin: 50px auto; padding: 20px;">
+        <h1>Todo List</h1>
+        
+        <div style="margin-bottom: 20px;">
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="Enter a task"
+                style="padding: 8px; width: 70%; margin-right: 10px;"
+            />
+            <button 
+                id="addButton" 
+                style="padding: 8px 20px; cursor: pointer;"
+            >
+                Add
+            </button>
+        </div>
+
+        <ul id="todoList" style="list-style: none; padding: 0;">
+            <!-- Tasks will be added here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const addButton = document.getElementById('addButton');
+        const todoList = document.getElementById('todoList');
+        let tasks = [];
+
+        // Add task function
+        function addTask() {
+            const taskText = taskInput.value.trim();
+            
+            // Prevent empty tasks
+            if (!taskText) {
+                return;
+            }
+
+            // Prevent duplicate tasks (bonus UX improvement)
+            if (tasks.includes(taskText)) {
+                alert('This task already exists!');
+                return;
+            }
+
+            // Add task to array
+            tasks.push(taskText);
+            
+            // Clear input field
+            taskInput.value = '';
+            
+            // Re-render the list
+            renderTasks();
+            
+            // Focus back on input for better UX
+            taskInput.focus();
+        }
+
+        // Delete task function
+        function deleteTask(taskText) {
+            tasks = tasks.filter(task => task !== taskText);
+            renderTasks();
+        }
+
+        // Render tasks in ascending order
+        function renderTasks() {
+            // Sort tasks in ascending order
+            const sortedTasks = [...tasks].sort((a, b) => a.localeCompare(b));
+            
+            // Clear the list
+            todoList.innerHTML = '';
+            
+            // Add each task to the list
+            sortedTasks.forEach(task => {
+                const li = document.createElement('li');
+                li.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd;';
+                
+                const taskSpan = document.createElement('span');
+                taskSpan.textContent = task;
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.style.cssText = 'padding: 5px 15px; cursor: pointer;';
+                deleteButton.onclick = () => deleteTask(task);
+                
+                li.appendChild(taskSpan);
+                li.appendChild(deleteButton);
+                todoList.appendChild(li);
+            });
+        }
+
+        // Event listeners
+        addButton.addEventListener('click', addTask);
+        
+        // Allow Enter key to add task (bonus UX improvement)
+        taskInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+
+        // Initial focus on input
+        taskInput.focus();
+    </script>
+</body>
+</html>
