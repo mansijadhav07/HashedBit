@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9 - JavaScript Fundamentals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .output {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assignment 9: JavaScript Fundamentals</h1>
+    
+    <div class="section">
+        <h2>1. Variable Scope (let, const, var)</h2>
+        <button onclick="demonstrateScope()">Run Scope Demo</button>
+        <div id="scope-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. Array Access - Second Fruit</h2>
+        <button onclick="showSecondFruit()">Get Second Fruit</button>
+        <div id="fruit-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>3. Push and Pop Operations</h2>
+        <button onclick="demonstratePushPop()">Run Push/Pop Demo</button>
+        <div id="pushpop-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>4. Map Method - Square Numbers</h2>
+        <button onclick="demonstrateMap()">Square Numbers</button>
+        <div id="map-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>5. Filter Method - Odd Numbers</h2>
+        <button onclick="demonstrateFilter()">Filter Odd Numbers</button>
+        <div id="filter-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>6. Object Properties - Person Greeting</h2>
+        <button onclick="showPersonGreeting()">Show Greeting</button>
+        <div id="person-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>7. Calculate Rectangle Area</h2>
+        <button onclick="calculateArea()">Calculate Area</button>
+        <div id="area-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>8. Object Keys</h2>
+        <button onclick="showObjectKeys()">Get Object Keys</button>
+        <div id="keys-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>9. Merge Objects</h2>
+        <button onclick="mergeObjects()">Merge Objects</button>
+        <div id="merge-output" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>10. Reduce Method - Sum Array</h2>
+        <button onclick="calculateSum()">Calculate Sum</button>
+        <div id="reduce-output" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
